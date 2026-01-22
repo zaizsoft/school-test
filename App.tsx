@@ -34,10 +34,10 @@ const App: React.FC = () => {
   });
   const [documents, setDocuments] = useState<DocumentType[]>(INITIAL_DOCUMENTS);
   const [margins, setMargins] = useState<MarginSettings>({
-    top: 10,
-    bottom: 10,
-    right: 15,
-    left: 15,
+    top: 5,
+    bottom: 5,
+    right: 10,
+    left: 10,
     verticalOffset: 0
   });
 

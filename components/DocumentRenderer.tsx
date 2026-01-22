@@ -28,7 +28,7 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
           <p>الفصل: <span>{config.term}</span></p>
         </div>
       </div>
-      <div className="border-y-2 border-black py-2 text-center text-[11px] font-bold">
+      <div className="border-y-2 border-black py-2 text-center text-[11px] font-bold leading-relaxed">
         الكفاءة الختامية: {pedagogical.kafaa}
       </div>
     </div>
@@ -37,7 +37,7 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
   const CriteriaBox = () => (
     <div className="border-2 border-black mb-4 overflow-hidden">
       <div className="bg-slate-50 border-b border-black text-center font-black py-1 text-xs">معايير التقييم</div>
-      <div className="grid grid-cols-2 divide-x divide-x-reverse divide-black text-[10px] p-2">
+      <div className="grid grid-cols-2 divide-x divide-x-reverse divide-black text-[10px] p-2 leading-tight">
         <div className="space-y-1 pr-2">
           <p>1. {pedagogical.criteria[0]}</p>
           <p>2. {pedagogical.criteria[1]}</p>
@@ -78,7 +78,7 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
         {Array.from({ length: 40 }).map((_, idx) => {
           const student = students[idx];
           return (
-            <tr key={idx} className={`h-[18px] text-[10px] ${student?.isExempted ? 'bg-slate-100' : ''}`}>
+            <tr key={idx} className={`h-[18px] text-[10px] ${student?.isExempted ? 'bg-slate-50' : ''}`}>
               <td className="border border-black text-center font-bold">{idx + 1}</td>
               <td className="border border-black pr-2 font-bold truncate">{student?.name || ''}</td>
               {student?.isExempted ? (
@@ -108,8 +108,8 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
 
   if (type === 'separator') {
     return (
-      <div className="h-full w-full flex items-center justify-center">
-        <div className="w-[85%] h-[85%] border-[12px] border-double border-black rounded-[4rem] flex flex-col items-center justify-center p-12 text-center">
+      <div className="h-full w-full flex items-center justify-center p-8">
+        <div className="w-full h-full border-[12px] border-double border-black rounded-[4rem] flex flex-col items-center justify-center p-12 text-center">
            <div className="border-4 border-black px-12 py-8 rounded-3xl mb-12">
              <h1 className="text-7xl font-black text-slate-900">{config.term}</h1>
            </div>
@@ -129,14 +129,14 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
 
   if (type === 'attendance') {
     return (
-      <div className="w-full text-right p-4">
-        <div className="flex justify-between items-center border-b-2 border-black pb-4 mb-6">
-          <div className="text-sm font-bold">
+      <div className="w-full text-right p-2">
+        <div className="flex justify-between items-center border-b-2 border-black pb-4 mb-4">
+          <div className="text-[10px] font-bold">
             <p>المؤسسة: {config.schoolName}</p>
             <p>الأستاذ: {config.teacherName}</p>
           </div>
-          <h2 className="text-3xl font-black border-2 border-black px-10 py-2 rounded-2xl">سجل المناداة وتتبع الغيابات</h2>
-          <div className="text-sm font-bold">
+          <h2 className="text-2xl font-black border-2 border-black px-8 py-1.5 rounded-xl">سجل المناداة وتتبع الغيابات</h2>
+          <div className="text-[10px] font-bold">
             <p>المستوى: {config.level} إبتدائي</p>
             <p>الموسم: {config.academicYear}</p>
           </div>
@@ -167,16 +167,16 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
           </thead>
           <tbody>
             {Array.from({ length: 35 }).map((_, idx) => (
-              <tr key={idx} className="h-4">
+              <tr key={idx} className="h-[14px]">
                 <td className="border border-black text-center font-bold">{idx + 1}</td>
-                <td className="border border-black pr-1 font-bold">{students[idx]?.name || ''}</td>
+                <td className="border border-black pr-1 font-bold truncate">{students[idx]?.name || ''}</td>
                 {Array(36).fill(0).map((_, i) => <td key={i} className="border border-black"></td>)}
               </tr>
             ))}
           </tbody>
         </table>
         
-        <div className="mt-4 grid grid-cols-4 gap-2 text-[10px] font-bold">
+        <div className="mt-2 grid grid-cols-4 gap-2 text-[8px] font-bold">
           <p>غ: غياب غير مبرر</p>
           <p>م: متأخر</p>
           <p>ب: بدون لباس رياضي</p>
@@ -187,9 +187,9 @@ const DocumentRenderer: React.FC<DocumentRendererProps> = ({ type, students, con
   }
 
   return (
-    <div className="h-full flex flex-col p-8">
-      <div className="text-center mb-8">
-        <h2 className="inline-block border-2 border-black px-8 py-3 rounded-full text-2xl font-black">
+    <div className="h-full flex flex-col">
+      <div className="text-center mb-6">
+        <h2 className="inline-block border-2 border-black px-8 py-2.5 rounded-full text-xl font-black">
           {type === 'diagnostic' ? 'تقويم التشخيصي للكفاءة الختامية' : 'تقويم التحصيلي للكفاءة الختامية'}
         </h2>
       </div>
