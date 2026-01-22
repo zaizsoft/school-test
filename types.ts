@@ -1,5 +1,4 @@
 
-// تعريف أنواع البيانات الأساسية للتطبيق
 export interface Student {
   id: number;
   name: string;
@@ -8,13 +7,32 @@ export interface Student {
 
 export interface SchoolConfig {
   schoolName: string;
-  level: string;
-  subLevel: string;
   teacherName: string;
   academicYear: string;
+  level: string;
   term: string;
+  subLevel: string;
 }
 
+export interface PedagogicalData {
+  kafaa: string;
+  criteria: string[];
+}
+
+export interface AppState {
+  students: Student[];
+  config: SchoolConfig;
+  visiblePages: {
+    diagnostic: boolean;
+    achievement: boolean;
+    performance: boolean;
+    attendance: boolean;
+    separator: boolean;
+  };
+  signature: string | null;
+}
+
+// Added missing types for CustomizationView and PreviewView
 export interface DocumentType {
   id: string;
   title: string;
