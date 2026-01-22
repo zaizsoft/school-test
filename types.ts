@@ -1,10 +1,5 @@
 
-export enum Step {
-  DATA = 'data',
-  CUSTOMIZE = 'customize',
-  PREVIEW = 'preview'
-}
-
+// تعريف أنواع البيانات الأساسية للتطبيق
 export interface Student {
   id: number;
   name: string;
@@ -13,12 +8,11 @@ export interface Student {
 
 export interface SchoolConfig {
   schoolName: string;
+  level: string;
+  subLevel: string;
   teacherName: string;
   academicYear: string;
-  level: string;
   term: string;
-  field: string;
-  subLevel: string;
 }
 
 export interface DocumentType {
@@ -32,7 +26,7 @@ export interface DocumentType {
 export interface MarginSettings {
   top: number;
   bottom: number;
-  right: number;
   left: number;
+  right: number;
   verticalOffset: number;
 }
