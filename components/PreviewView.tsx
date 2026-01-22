@@ -62,7 +62,8 @@ const PreviewView: React.FC<PreviewViewProps> = ({ students, config, documents, 
                 paddingBottom: `${margins.bottom}mm`,
                 paddingRight: `${margins.right}mm`,
                 paddingLeft: `${margins.left}mm`,
-                marginTop: `${margins.verticalOffset}px`
+                marginTop: `${margins.verticalOffset}px`,
+                boxSizing: 'border-box'
               }}
             >
               <DocumentRenderer 
